@@ -55,6 +55,6 @@ switch (horseRace) {
     confirm ("Let's see how much you've won. Good luck!")
     var randomNum = Math.random();
     var winningNumber = Math.ceil(randomNum * 1000);
-    console.log(winningNumber + " dollars")
+    console.log("You just won " + winningNumber + " dollars! Cha-Ching!")
     return winningNumber;
   }
