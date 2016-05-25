@@ -1,3 +1,4 @@
+
 var horseRace = prompt("Welcome to the races! Do you want to RIDE a horse or WATCH the race?").toUpperCase();
 switch (horseRace) {
   case "RIDE":
@@ -6,11 +7,10 @@ switch (horseRace) {
     if (pickHorse === "WHITE"){
       console.log ("Great, you'll be riding Coconut! Good luck!");
       randomHorse();
-    } else if ("BROWN") {
+    } else if (pickHorse === "BROWN") {
       console.log ("Bummer! We don't have any brown horses.");
       randomHorse();
-    }
-    else if ("BLACK") {
+    } else if (pickHorse === "BLACK") {
       console.log ("Great, you'll be riding Java! Good luck!");
       randomHorse();
     } else {
@@ -20,32 +20,27 @@ switch (horseRace) {
     break;
 
   case 'WATCH':
-    console.log ("We'll need to buy tickets");
-    var getTickets = prompt("Do you want to pay TEN or TWENTY dollars?").toUpperCase();
-    var cheap = (getTickets === "TEN");
-    var expensive = (getTickets === "TWENTY");
-    if (cheap) {
-      console.log ("NOSEBLEEDS!");
-      var upsell= prompt("Are you sure you don't want better seats? YES OR NO?").toUpperCase();
-      if (upsell === "YES" ) {
-        console.log ("Cha-Ching! Let's get the twenty dollar tickets!")
-      } else  {
-        while (upsell === "NO"){// ////WARNING INFINITE LOOP!
-        prompt("Oops! We just sold out of those. Twenty dollar tickets it is!")
+    console.log ("You've reached your seats!");
+    var makeBet = prompt("Do you want to place a bet? YES or NO?").toUpperCase();
+    if (makeBet === "NO") {
+      console.log ("Guess you're not a risk taker.")
+    }
+    if (makeBet === "YES") {
+      console.log ("Awesome!");
+      var betAmount= prompt("How much do you want to bet? 100 or 1000?")
+      if (betAmount === '100' ) {
+        randomWinner();
+      } else {
+        randomWinner();
       }
       }
-    }
-    if (expensive) {
-      console.log ("Good choice!")
-    }
-
     break;
   default:
     console.log ("No fun for you!")
   }
 
   function randomHorse (anyListOfHorses) {
-    var horses = ['Coconut', 'Java', 'Sorry another horse won'];
+    var horses = ['Coconut', 'Java', 'Another horse won'];
     anyListOfHorses = anyListOfHorses || horses;
     confirm ("Let's start the race. Click OK to see if you've won. Good luck!")
     var randomNum = Math.random();
@@ -53,5 +48,13 @@ switch (horseRace) {
     var lastIndexOfHorsesList = lengthOfHorsesList - 1;
     var guessNumber = Math.floor(randomNum * lengthOfHorsesList);
     var winner = anyListOfHorses[guessNumber];
-    console.log(winner)
+    console.log(winner + " won!!")
+  }
+
+  function randomWinner () {
+    confirm ("Let's see how much you've won. Good luck!")
+    var randomNum = Math.random();
+    var winningNumber = Math.ceil(randomNum * 1000);
+    console.log(winningNumber + " dollars")
+    return winningNumber;
   }
