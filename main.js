@@ -8,7 +8,7 @@ switch (horseRace) {
       console.log ("Great, you'll be riding Coconut! Good luck!");
       randomHorse();
     } else if (pickHorse === "BROWN") {
-      console.log ("Bummer! We don't have any brown horses.");
+      console.log ("Bummer! We don't have any brown horses. Don't worry, we'll give you another horse.");
       randomHorse();
     } else if (pickHorse === "BLACK") {
       console.log ("Great, you'll be riding Java! Good luck!");
@@ -42,13 +42,13 @@ switch (horseRace) {
   function randomHorse (anyListOfHorses) {
     var horses = ['Coconut', 'Java', 'Another horse won'];
     anyListOfHorses = anyListOfHorses || horses;
-    confirm ("Let's start the race. Click OK to see if you've won. Good luck!")
+    confirm ("Let's start the race. To see if you've won, click OK. Good luck!")
     var randomNum = Math.random();
     var lengthOfHorsesList = anyListOfHorses.length;
     var lastIndexOfHorsesList = lengthOfHorsesList - 1;
     var guessNumber = Math.floor(randomNum * lengthOfHorsesList);
     var winner = anyListOfHorses[guessNumber];
-    console.log(winner + " won!!")
+    console.log(winner + " won by a nose!!")
   }
 
   function randomWinner () {
